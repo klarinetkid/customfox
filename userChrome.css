@@ -13,7 +13,7 @@
 :root:not([customizing]) #navigator-toolbox.locked {
     transition-property: height;
     transition-duration: 0.2s;
-    height: auto;
+    height: 100px;
 }
 
 /* Incicate locked UI */
