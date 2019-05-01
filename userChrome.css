@@ -1,0 +1,46 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Hide UI */
+:root:not([customizing]) #navigator-toolbox {
+    transition-property: height;
+    transition-duration: 0.2s;
+	overflow: hidden;
+    height: 0px;
+}
+
+/* Show UI */
+:root:not([customizing]) #navigator-toolbox.key-pressed,
+:root:not([customizing]) #navigator-toolbox.locked {
+    transition-property: height;
+    transition-duration: 0.2s;
+    height: auto;
+}
+
+/* Incicate locked UI */
+:root:not([customizing]) #navigator-toolbox.locked #tabbrowser-tabs {
+	background-color: #ffcccc;
+}
+
+
+/* Remove white flash before page load */
+@-moz-document url-prefix(about:), url-prefix(chrome://browser) {
+    browser[type="content"], tabpanels {
+		background: #1a1a1a !important;
+	}
+
+	#fullscreen-warning {
+  		display: none !important;
+	}
+}
+
+/* Remove annoying ui elements */
+#statuspanel,
+#reader-mode-button,
+#pocket-button {
+	display: none !important;
+}
+
+/* userchome.js */
+toolbarbutton#alltabs-button {
+    -moz-binding: url("userChrome.xml#js");
+}
